@@ -1,6 +1,5 @@
 name: movie_list
-description: An application built to keep a track of watched movies using hive. An
-  assessment for Yellow Class recruitment.
+description: An application built to keep a track of watched movies using hive. An assessment for Yellow Class recruitment.
 
 publish_to: 'none'
 version: 1.0.0+1
