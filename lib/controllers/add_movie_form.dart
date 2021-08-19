@@ -31,13 +31,16 @@ class _AddMovieFormState extends State<AddMovieForm> {
               color: Colors.lightBlueAccent,
             ),
           ),
+          SizedBox(
+            height: 10.0,
+          ),
           // Movie Name Input Field
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: TextFormField(
               autofocus: true,
               textAlign: TextAlign.center,
-              maxLength: 25,
+              maxLength: 75,
               autovalidateMode: AutovalidateMode.always,
               decoration: kTextInputDecoration.copyWith(
                 labelText: M7tL10n.of(context).amfMovieNameLabel,
@@ -48,8 +51,8 @@ class _AddMovieFormState extends State<AddMovieForm> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: TextFormField(
-              autofocus: true,
               textAlign: TextAlign.center,
+              maxLength: 100,
               decoration: kTextInputDecoration.copyWith(
                 labelText: M7tL10n.of(context).amfDirectorsLabel,
               ),
@@ -57,7 +60,6 @@ class _AddMovieFormState extends State<AddMovieForm> {
           ),
           // Is the movie watched? - Checkbox
           CheckboxListTile(
-            autofocus: true,
             value: isWatched,
             onChanged: (value) {
               setState(() => isWatched = value ?? false);
@@ -67,15 +69,17 @@ class _AddMovieFormState extends State<AddMovieForm> {
             title: Text(M7tL10n.of(context).amfIsWatchedTitle),
           ),
           // Add Movie - Submit Button
-          ElevatedButton(
-            autofocus: true,
-            child: Text(
-              M7tL10n.of(context).amfSubmitButton,
-              style: TextStyle(
-                color: Colors.white,
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10.0),
+            child: ElevatedButton(
+              child: Text(
+                M7tL10n.of(context).amfSubmitButton,
+                style: TextStyle(
+                  color: Colors.white,
+                ),
               ),
+              onPressed: () {},
             ),
-            onPressed: () {},
           ),
         ],
       ),
