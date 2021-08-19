@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:movie_list/constants.dart';
@@ -78,21 +79,23 @@ class _AddMovieFormState extends State<AddMovieForm> {
                     fontSize: 20.0,
                   ),
                 ),
-                Flexible(
-                  child: IconButton(
-                    onPressed: () {},
-                    color: Colors.lightBlueAccent,
-                    iconSize: 30.0,
-                    icon: Icon(Icons.photo_library_outlined),
-                  ),
+                IconButton(
+                  onPressed: () async {
+                    final XFile? image =
+                        await _picker.pickImage(source: ImageSource.gallery);
+                  },
+                  color: Colors.lightBlueAccent,
+                  iconSize: 30.0,
+                  icon: Icon(Icons.photo_library_outlined),
                 ),
-                Flexible(
-                  child: IconButton(
-                    onPressed: () {},
-                    color: Colors.lightBlueAccent,
-                    iconSize: 30.0,
-                    icon: Icon(Icons.add_a_photo_outlined),
-                  ),
+                IconButton(
+                  onPressed: () async {
+                    final XFile? image =
+                        await _picker.pickImage(source: ImageSource.camera);
+                  },
+                  color: Colors.lightBlueAccent,
+                  iconSize: 30.0,
+                  icon: Icon(Icons.add_a_photo_outlined),
                 ),
               ],
             ),
