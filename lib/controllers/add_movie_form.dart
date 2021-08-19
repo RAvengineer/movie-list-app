@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -18,6 +20,20 @@ class _AddMovieFormState extends State<AddMovieForm> {
   final tcMovieName = TextEditingController();
   final tcDirectors = TextEditingController();
   bool isWatched = true;
+  Image? poster;
+  Uint8List imgBytes = Uint8List(0);
+
+  // Since XFile.path creates issues when passed to File, it is recommended
+  // to use the XFile.readAsBytes() method & extract an image file or
+  // a normal file from the returned Uint8List
+  void convert2Image(XFile pickedImage) async {
+    imgBytes = await pickedImage.readAsBytes();
+    setState(() {
+      poster = Image.memory(
+        imgBytes,
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,29 +87,33 @@ class _AddMovieFormState extends State<AddMovieForm> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
+                // Label
                 Text(
                   M7tL10n.of(context).amfPoster,
                   style: TextStyle(
                     color: Colors.lightBlue[900],
-                    // fontWeight: FontWeight.bold,
                     fontSize: 20.0,
                   ),
                 ),
+                // Gallery Image Picker
                 IconButton(
                   onPressed: () async {
                     final XFile? image =
                         await _picker.pickImage(source: ImageSource.gallery);
+                    if (image != null) convert2Image(image);
                   },
                   color: Colors.lightBlueAccent,
                   iconSize: 30.0,
                   icon: Icon(Icons.photo_library_outlined),
                 ),
+                // Camera Image Picker
                 kIsWeb
                     ? SizedBox()
                     : IconButton(
                         onPressed: () async {
                           final XFile? image = await _picker.pickImage(
                               source: ImageSource.camera);
+                          if (image != null) convert2Image(image);
                         },
                         color: Colors.lightBlueAccent,
                         iconSize: 30.0,
@@ -102,6 +122,15 @@ class _AddMovieFormState extends State<AddMovieForm> {
               ],
             ),
           ),
+          poster != null
+              ? Container(
+                  height: 256.0,
+                  child: ClipRRect(
+                    child: poster,
+                    borderRadius: BorderRadius.circular(16.0),
+                  ),
+                )
+              : SizedBox(),
           // Is the movie watched? - Checkbox
           CheckboxListTile(
             value: isWatched,
@@ -129,6 +158,7 @@ class _AddMovieFormState extends State<AddMovieForm> {
                 print(
                     tcDirectors.text.split(",").map((e) => e.trim()).toList());
                 print(isWatched.toString());
+                print(imgBytes.length);
                 Navigator.pop(context);
               },
             ),
