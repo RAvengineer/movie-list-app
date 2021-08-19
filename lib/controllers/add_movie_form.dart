@@ -88,15 +88,17 @@ class _AddMovieFormState extends State<AddMovieForm> {
                   iconSize: 30.0,
                   icon: Icon(Icons.photo_library_outlined),
                 ),
-                IconButton(
-                  onPressed: () async {
-                    final XFile? image =
-                        await _picker.pickImage(source: ImageSource.camera);
-                  },
-                  color: Colors.lightBlueAccent,
-                  iconSize: 30.0,
-                  icon: Icon(Icons.add_a_photo_outlined),
-                ),
+                kIsWeb
+                    ? SizedBox()
+                    : IconButton(
+                        onPressed: () async {
+                          final XFile? image = await _picker.pickImage(
+                              source: ImageSource.camera);
+                        },
+                        color: Colors.lightBlueAccent,
+                        iconSize: 30.0,
+                        icon: Icon(Icons.add_a_photo_outlined),
+                      ),
               ],
             ),
           ),
@@ -123,8 +125,10 @@ class _AddMovieFormState extends State<AddMovieForm> {
               onPressed: () {
                 // ignore: todo
                 // TODO: Replace print with function to save the movie in a list
+                print(tcMovieName.text);
                 print(
-                    tcMovieName.text + tcDirectors.text + isWatched.toString());
+                    tcDirectors.text.split(",").map((e) => e.trim()).toList());
+                print(isWatched.toString());
                 Navigator.pop(context);
               },
             ),
