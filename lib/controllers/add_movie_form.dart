@@ -22,6 +22,7 @@ class _AddMovieFormState extends State<AddMovieForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
+          // Add Movie - Form Title
           Text(
             M7tL10n.of(context).amfTitle,
             textAlign: TextAlign.center,
@@ -30,6 +31,7 @@ class _AddMovieFormState extends State<AddMovieForm> {
               color: Colors.lightBlueAccent,
             ),
           ),
+          // Movie Name Input Field
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: TextFormField(
@@ -42,13 +44,18 @@ class _AddMovieFormState extends State<AddMovieForm> {
               ),
             ),
           ),
-          TextFormField(
-            autofocus: true,
-            textAlign: TextAlign.center,
-            decoration: kTextInputDecoration.copyWith(
-              labelText: M7tL10n.of(context).amfDirectorsLabel,
+          // Director(s) Input Field
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: TextFormField(
+              autofocus: true,
+              textAlign: TextAlign.center,
+              decoration: kTextInputDecoration.copyWith(
+                labelText: M7tL10n.of(context).amfDirectorsLabel,
+              ),
             ),
           ),
+          // Is the movie watched? - Checkbox
           CheckboxListTile(
             autofocus: true,
             value: isWatched,
@@ -59,7 +66,9 @@ class _AddMovieFormState extends State<AddMovieForm> {
             selected: isWatched,
             title: Text(M7tL10n.of(context).amfIsWatchedTitle),
           ),
+          // Add Movie - Submit Button
           ElevatedButton(
+            autofocus: true,
             child: Text(
               M7tL10n.of(context).amfSubmitButton,
               style: TextStyle(
