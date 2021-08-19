@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:movie_list/constants.dart';
 import 'package:movie_list/generated/l10n.dart';
 
@@ -13,6 +12,8 @@ class AddMovieForm extends StatefulWidget {
 
 class _AddMovieFormState extends State<AddMovieForm> {
   final _formKey = GlobalKey<FormState>();
+
+  final ImagePicker _picker = ImagePicker();
   final tcMovieName = TextEditingController();
   final tcDirectors = TextEditingController();
   bool isWatched = true;
@@ -61,6 +62,39 @@ class _AddMovieFormState extends State<AddMovieForm> {
                 labelText: M7tL10n.of(context).amfDirectorsLabel,
                 helperText: M7tL10n.of(context).amfDirectorsHelper,
               ),
+            ),
+          ),
+          // Pick Poster - ImagePicker
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Text(
+                  'Poster',
+                  style: TextStyle(
+                    color: Colors.lightBlue[900],
+                    // fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                  ),
+                ),
+                Flexible(
+                  child: IconButton(
+                    onPressed: () {},
+                    color: Colors.lightBlueAccent,
+                    iconSize: 30.0,
+                    icon: Icon(Icons.photo_library_outlined),
+                  ),
+                ),
+                Flexible(
+                  child: IconButton(
+                    onPressed: () {},
+                    color: Colors.lightBlueAccent,
+                    iconSize: 30.0,
+                    icon: Icon(Icons.add_a_photo_outlined),
+                  ),
+                ),
+              ],
             ),
           ),
           // Is the movie watched? - Checkbox
