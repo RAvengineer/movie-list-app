@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Director(s)"),
         "amfIsWatchedTitle": MessageLookupByLibrary.simpleMessage("Watched"),
         "amfMovieNameLabel": MessageLookupByLibrary.simpleMessage("Movie Name"),
+        "amfPoster": MessageLookupByLibrary.simpleMessage("Poster"),
         "amfSubmitButton": MessageLookupByLibrary.simpleMessage("Add"),
         "amfTitle": MessageLookupByLibrary.simpleMessage("Add Movie")
       };

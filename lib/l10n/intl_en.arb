@@ -4,5 +4,6 @@
     "amfDirectorsHelper": "Seperate the names by comma (,)",
     "amfIsWatchedTitle": "Watched",
     "amfSubmitButton": "Add",
-    "amfTitle": "Add Movie"
+    "amfTitle": "Add Movie",
+    "amfPoster": "Poster"
 }

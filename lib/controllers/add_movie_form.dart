@@ -71,7 +71,7 @@ class _AddMovieFormState extends State<AddMovieForm> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 Text(
-                  'Poster',
+                  M7tL10n.of(context).amfPoster,
                   style: TextStyle(
                     color: Colors.lightBlue[900],
                     // fontWeight: FontWeight.bold,

@@ -109,6 +109,16 @@ class M7tL10n {
       args: [],
     );
   }
+
+  /// `Poster`
+  String get amfPoster {
+    return Intl.message(
+      'Poster',
+      name: 'amfPoster',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<M7tL10n> {
