@@ -20,5 +20,12 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "amfDirectorsLabel":
+            MessageLookupByLibrary.simpleMessage("Director(s)"),
+        "amfIsWatchedTitle": MessageLookupByLibrary.simpleMessage("Watched"),
+        "amfMovieNameLabel": MessageLookupByLibrary.simpleMessage("Movie Name"),
+        "amfSubmitButton": MessageLookupByLibrary.simpleMessage("Add"),
+        "amfTitle": MessageLookupByLibrary.simpleMessage("Add Movie")
+      };
 }
