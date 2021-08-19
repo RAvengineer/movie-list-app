@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:movie_list/constants.dart';
 import 'package:movie_list/generated/l10n.dart';
@@ -81,7 +83,13 @@ class _AddMovieFormState extends State<AddMovieForm> {
                   color: Colors.white,
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                // ignore: todo
+                // TODO: Replace print with function to save the movie in a list
+                print(
+                    tcMovieName.text + tcDirectors.text + isWatched.toString());
+                Navigator.pop(context);
+              },
             ),
           ),
         ],
