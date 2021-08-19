@@ -49,6 +49,56 @@ class M7tL10n {
   static M7tL10n? maybeOf(BuildContext context) {
     return Localizations.of<M7tL10n>(context, M7tL10n);
   }
+
+  /// `Movie Name`
+  String get amfMovieNameLabel {
+    return Intl.message(
+      'Movie Name',
+      name: 'amfMovieNameLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Director(s)`
+  String get amfDirectorsLabel {
+    return Intl.message(
+      'Director(s)',
+      name: 'amfDirectorsLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Watched`
+  String get amfIsWatchedTitle {
+    return Intl.message(
+      'Watched',
+      name: 'amfIsWatchedTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add`
+  String get amfSubmitButton {
+    return Intl.message(
+      'Add',
+      name: 'amfSubmitButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Movie`
+  String get amfTitle {
+    return Intl.message(
+      'Add Movie',
+      name: 'amfTitle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<M7tL10n> {

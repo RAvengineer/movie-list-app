@@ -1,1 +1,7 @@
-{}
+{
+    "amfMovieNameLabel": "Movie Name",
+    "amfDirectorsLabel": "Director(s)",
+    "amfIsWatchedTitle": "Watched",
+    "amfSubmitButton": "Add",
+    "amfTitle": "Add Movie"
+}
