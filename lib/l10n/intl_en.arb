@@ -1,6 +1,7 @@
 {
     "amfMovieNameLabel": "Movie Name",
     "amfDirectorsLabel": "Director(s)",
+    "amfDirectorsHelper": "Seperate the names by comma (,)",
     "amfIsWatchedTitle": "Watched",
     "amfSubmitButton": "Add",
     "amfTitle": "Add Movie"

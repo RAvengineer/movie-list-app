@@ -70,6 +70,16 @@ class M7tL10n {
     );
   }
 
+  /// `Seperate the names by comma (,)`
+  String get amfDirectorsHelper {
+    return Intl.message(
+      'Seperate the names by comma (,)',
+      name: 'amfDirectorsHelper',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Watched`
   String get amfIsWatchedTitle {
     return Intl.message(

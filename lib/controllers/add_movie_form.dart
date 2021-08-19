@@ -38,6 +38,7 @@ class _AddMovieFormState extends State<AddMovieForm> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: TextFormField(
+              controller: tcMovieName,
               autofocus: true,
               textAlign: TextAlign.center,
               maxLength: 75,
@@ -51,10 +52,12 @@ class _AddMovieFormState extends State<AddMovieForm> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: TextFormField(
+              controller: tcDirectors,
               textAlign: TextAlign.center,
               maxLength: 100,
               decoration: kTextInputDecoration.copyWith(
                 labelText: M7tL10n.of(context).amfDirectorsLabel,
+                helperText: M7tL10n.of(context).amfDirectorsHelper,
               ),
             ),
           ),

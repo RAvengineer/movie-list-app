@@ -21,6 +21,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "amfDirectorsHelper": MessageLookupByLibrary.simpleMessage(
+            "Seperate the names by comma (,)"),
         "amfDirectorsLabel":
             MessageLookupByLibrary.simpleMessage("Director(s)"),
         "amfIsWatchedTitle": MessageLookupByLibrary.simpleMessage("Watched"),
