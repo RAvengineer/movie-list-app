@@ -18,4 +18,11 @@ A new Flutter project.
 - [Simple TODO App Using Hive Database | Medium](https://medium.com/@vivpatel99/simple-todo-app-using-hive-database-761f6c3bb17c)
 - [How to create a modal bottomsheet with circular corners in Flutter? | StackOverflow](https://stackoverflow.com/a/62457068)
 - [Check if platform is Web | StackOverflow](https://stackoverflow.com/a/57965689)
+- [How to use images in Flutter | Flutter Community | Medium](https://medium.com/flutter-community/how-to-use-images-in-flutter-to-the-point-5542b4412a53)
+- [@required annotation in Flutter | StackOverflow](https://stackoverflow.com/a/54182073)
+- [todoey - londonappbrewery | GitHub](https://github.com/londonappbrewery/todoey-flutter)
+- [The argument type 'Function' can't be assigned to the parameter type 'void Function()?'](https://stackoverflow.com/a/68144221)
+
+**NOTE to Self:**
+- Wasted 20 min on asset loading, even though the code was correct, just needed to `Cold Restart` the application.
 
