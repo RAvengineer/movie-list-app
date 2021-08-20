@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie_list/models/movie_model.dart';
 import 'package:movie_list/screens/add_movie_screen.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:movie_list/widgets/movie_list_view.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -32,33 +31,7 @@ class HomeScreen extends StatelessWidget {
             )
           },
         ),
-        body: ValueListenableBuilder(
-          valueListenable: Hive.box<Movie>('movies').listenable(),
-          builder: (context, Box<Movie> _movieBox, widget) => ListView.builder(
-            itemCount: _movieBox.length,
-            itemBuilder: (context, index) {
-              final movie = _movieBox.getAt(index);
-              Image poster = movie!.posterBytes.isEmpty
-                  ? Image.asset('assets/images/poster-icon.png')
-                  : Image.memory(
-                      movie.posterBytes,
-                      fit: BoxFit.contain,
-                    );
-              return ListTile(
-                title: Text(movie.name),
-                subtitle: Text(movie.directors.join(' | ')),
-                leading: poster,
-                trailing: Icon(
-                  movie.watched
-                      ? Icons.playlist_add_check
-                      : Icons.playlist_play,
-                  color: movie.watched ? Colors.greenAccent : Colors.amber[700],
-                  size: 32.0,
-                ),
-              );
-            },
-          ),
-        ),
+        body: MovieListView(),
       ),
     );
   }
