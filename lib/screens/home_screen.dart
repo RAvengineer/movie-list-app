@@ -48,6 +48,13 @@ class HomeScreen extends StatelessWidget {
                 title: Text(movie.name),
                 subtitle: Text(movie.directors.join(' | ')),
                 leading: poster,
+                trailing: Icon(
+                  movie.watched
+                      ? Icons.playlist_add_check
+                      : Icons.playlist_play,
+                  color: movie.watched ? Colors.greenAccent : Colors.amber[700],
+                  size: 32.0,
+                ),
               );
             },
           ),
