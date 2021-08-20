@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_list/screens/add_movie_screen.dart';
+import 'package:movie_list/controllers/add_movie_form.dart';
 import 'package:movie_list/widgets/movie_list_view.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.only(
                       bottom: MediaQuery.of(context).viewInsets.bottom),
-                  child: AddMovieScreen(),
+                  child: AddMovieForm(),
                 ),
               ),
             )
