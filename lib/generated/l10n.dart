@@ -119,6 +119,26 @@ class M7tL10n {
       args: [],
     );
   }
+
+  /// `Adding Movie...`
+  String get amfValidationSuccess {
+    return Intl.message(
+      'Adding Movie...',
+      name: 'amfValidationSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check the field inputs again!`
+  String get amfValidationFailure {
+    return Intl.message(
+      'Check the field inputs again!',
+      name: 'amfValidationFailure',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<M7tL10n> {

@@ -29,6 +29,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "amfMovieNameLabel": MessageLookupByLibrary.simpleMessage("Movie Name"),
         "amfPoster": MessageLookupByLibrary.simpleMessage("Poster"),
         "amfSubmitButton": MessageLookupByLibrary.simpleMessage("Add"),
-        "amfTitle": MessageLookupByLibrary.simpleMessage("Add Movie")
+        "amfTitle": MessageLookupByLibrary.simpleMessage("Add Movie"),
+        "amfValidationFailure": MessageLookupByLibrary.simpleMessage(
+            "Check the field inputs again!"),
+        "amfValidationSuccess":
+            MessageLookupByLibrary.simpleMessage("Adding Movie...")
       };
 }

@@ -5,5 +5,7 @@
     "amfIsWatchedTitle": "Watched",
     "amfSubmitButton": "Add",
     "amfTitle": "Add Movie",
-    "amfPoster": "Poster"
+    "amfPoster": "Poster",
+    "amfValidationSuccess": "Adding Movie...",
+    "amfValidationFailure": "Check the field inputs again!"
 }
