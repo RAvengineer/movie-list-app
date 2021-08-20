@@ -2,9 +2,11 @@ import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:movie_list/constants.dart';
 import 'package:movie_list/generated/l10n.dart';
+import 'package:movie_list/models/movie_model.dart';
 
 class AddMovieForm extends StatefulWidget {
   const AddMovieForm({Key? key}) : super(key: key);
@@ -62,7 +64,11 @@ class _AddMovieFormState extends State<AddMovieForm> {
               autofocus: true,
               textAlign: TextAlign.center,
               maxLength: 75,
-              autovalidateMode: AutovalidateMode.always,
+              validator: (value) {
+                if (value == null || value.isEmpty)
+                  return 'Please Enter the movie name';
+                return null;
+              },
               decoration: kTextInputDecoration.copyWith(
                 labelText: M7tL10n.of(context).amfMovieNameLabel,
               ),
@@ -75,6 +81,11 @@ class _AddMovieFormState extends State<AddMovieForm> {
               controller: tcDirectors,
               textAlign: TextAlign.center,
               maxLength: 100,
+              validator: (value) {
+                if (value == null || value.isEmpty)
+                  return 'Please Enter the name of the director(s)';
+                return null;
+              },
               decoration: kTextInputDecoration.copyWith(
                 labelText: M7tL10n.of(context).amfDirectorsLabel,
                 helperText: M7tL10n.of(context).amfDirectorsHelper,
@@ -152,14 +163,35 @@ class _AddMovieFormState extends State<AddMovieForm> {
                 ),
               ),
               onPressed: () {
-                // ignore: todo
-                // TODO: Replace print with function to save the movie in a list
-                print(tcMovieName.text);
-                print(
-                    tcDirectors.text.split(",").map((e) => e.trim()).toList());
-                print(isWatched.toString());
-                print(imgBytes.length);
-                Navigator.pop(context);
+                if (_formKey.currentState!.validate()) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(M7tL10n.of(context).amfValidationSuccess)));
+
+                  // Debugging
+                  /*print(tcMovieName.text);
+                  print(
+                      tcDirectors.text.split(",").map((e) => e.trim()).toList());
+                  print(isWatched.toString());
+                  print(imgBytes.length);*/
+                  final String movieName = tcMovieName.text;
+                  final List<String> movieDirectors =
+                      tcDirectors.text.split(",").map((e) => e.trim()).toList();
+                  if (movieName == '' || tcDirectors.text == '') return;
+
+                  final Movie movie = Movie(
+                    name: movieName,
+                    directors: movieDirectors,
+                    watched: isWatched,
+                    posterBytes: imgBytes,
+                  );
+                  Hive.box<Movie>('movies').add(movie);
+                  Navigator.pop(context);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text(M7tL10n.of(context).amfValidationFailure),
+                    backgroundColor: Colors.redAccent,
+                  ));
+                }
               },
             ),
           ),
