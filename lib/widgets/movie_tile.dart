@@ -3,8 +3,14 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:movie_list/models/movie_model.dart';
 
 class MovieTile extends StatelessWidget {
-  const MovieTile({Key? key, required this.movie}) : super(key: key);
+  const MovieTile(
+      {Key? key,
+      required this.movie,
+      required this.onDeletePressed,
+      required this.onEditPressed})
+      : super(key: key);
   final Movie movie;
+  final void Function() onDeletePressed, onEditPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +21,7 @@ class MovieTile extends StatelessWidget {
           caption: 'Delete',
           icon: Icons.delete_outlined,
           color: Colors.redAccent,
-          onTap: () => print('Delete'),
+          onTap: onDeletePressed,
         ),
       ],
       secondaryActions: [
@@ -23,7 +29,7 @@ class MovieTile extends StatelessWidget {
           caption: 'Edit',
           icon: Icons.mode_edit_outline_outlined,
           color: Colors.purpleAccent,
-          onTap: () => print('Edit'),
+          onTap: onEditPressed,
         ),
       ],
       child: ListTile(
