@@ -38,13 +38,16 @@ class HomeScreen extends StatelessWidget {
             itemCount: _movieBox.length,
             itemBuilder: (context, index) {
               final movie = _movieBox.getAt(index);
+              Image poster = movie!.posterBytes.isEmpty
+                  ? Image.asset('assets/images/poster-icon.png')
+                  : Image.memory(
+                      movie.posterBytes,
+                      fit: BoxFit.contain,
+                    );
               return ListTile(
-                title: Text(movie!.name),
+                title: Text(movie.name),
                 subtitle: Text(movie.directors.join(' | ')),
-                leading: Image.memory(
-                  movie.posterBytes,
-                  fit: BoxFit.contain,
-                ),
+                leading: poster,
               );
             },
           ),
